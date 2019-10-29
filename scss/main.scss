@@ -1,0 +1,54 @@
+@import 'variables';
+@import 'mixins';
+
+body {
+    background: $brand-primary;
+    font-family: $brand-font-family;
+    padding: 1rem;
+}
+
+section {
+    background: $white;
+    border-radius: $standard-radius;
+    padding: $standard-radius;
+    .heading {
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        h2 {
+            margin-top: 0;
+            font-size: 2rem;
+        }
+    }
+}
+
+.box { 
+    width: 300px;
+    height: 300px;
+    background-color: #f00;
+    @include transform(rotate(30deg)); 
+}
+
+%message {
+    padding: 1rem;
+    border: 2px solid #ccc;
+    background: #fff;
+    margin: 1rem 0;
+}
+
+.success-message {
+    @extend %message;
+    border-color: #0f0;
+    background: lighten(#0f0, 40);
+}
+
+.error-message {
+    @extend %message;
+    border-color: #f00;
+    background: lighten(#f00, 40);
+}
+
+@for $i from 1 through 10 {
+	.grid-#{$i} { width: 25px * $i; background: #ff6600; display: block; margin-bottom: 1rem; }
+}
